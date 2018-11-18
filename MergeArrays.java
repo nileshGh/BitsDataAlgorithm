@@ -1,29 +1,29 @@
 class MergeArrays 
 { 
-	/* Function to move m elements at the end of array mPlusN[] */
-	void moveToEnd(int mPlusN[], int size) 
+	/* Function to move m elements at the end of array mPlusF[] */
+	void moveToEnd(int mPlusF[], int size) 
 	{ 
 		int i, j = size - 1; 
 		for (i = size - 1; i >= 0; i--) 
 		{ 
-			if (mPlusN[i] != -1) 
+			if (mPlusF[i] != -1) 
 			{ 
-				mPlusN[j] = mPlusN[i]; 
+				mPlusF[j] = mPlusF[i]; 
 				j--; 
 			} 
 		} 
 	} 
 
-	/* Merges array N[] of size n into array mPlusN[] 
+	/* Merges array F[] of size n into array mPlusF[] 
 	of size m+n*/
-	void merge(int mPlusN[], int N[], int m, int n) 
+	void merge(int mPlusF[], int F[], int m, int n) 
 	{ 
 		int i = n; 
 		
 		/* Current index of i/p part of mPlusN[]*/
 		int j = 0; 
 		
-		/* Current index of N[]*/
+		/* Current index of F[]*/
 		int k = 0; 
 		
 		/* Current index of of output mPlusN[]*/
@@ -32,16 +32,16 @@ class MergeArrays
 			/* Take an element from mPlusN[] if 
 			a) value of the picked element is smaller and we have 
 				not reached end of it 
-			b) We have reached end of N[] */
-			if ((i < (m + n) && mPlusN[i] <= N[j]) || (j == n)) 
+			b) We have reached end of F[] */
+			if ((i < (m + n) && mPlusN[i] <= F[j]) || (j == n)) 
 			{ 
 				mPlusN[k] = mPlusN[i]; 
 				k++; 
 				i++; 
 			} 
-			else // Otherwise take element from N[] 
+			else // Otherwise take element from F[] 
 			{ 
-				mPlusN[k] = N[j]; 
+				mPlusN[k] = F[j]; 
 				k++; 
 				j++; 
 			} 
@@ -64,15 +64,15 @@ class MergeArrays
 		
 		/* Initialize arrays */
 		int mPlusN[] = {2, 8, -1, -1, -1, 13, -1, 15, 20}; 
-		int N[] = {5, 7, 9, 25}; 
-		int n = N.length; 
+		int F[] = {5, 7, 9, 25}; 
+		int n = F.length; 
 		int m = mPlusN.length - n; 
 
 		/*Move the m elements at the end of mPlusN*/
 		mergearray.moveToEnd(mPlusN, m + n); 
 
-		/*Merge N[] into mPlusN[] */
-		mergearray.merge(mPlusN, N, m, n); 
+		/*Merge F[] into mPlusN[] */
+		mergearray.merge(mPlusN, F, m, n); 
 
 		/* Print the resultant mPlusN */
 		mergearray.printArray(mPlusN, m + n); 
